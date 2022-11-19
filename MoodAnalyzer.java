@@ -8,7 +8,7 @@ public class MoodAnalyzer {
 	}
 
 	// method to return mood
-	public String analyseMood(String message) {
+	public String analyseMood(String message) throws MoodAnalysisException {
 		this.message = message;
 		return analyseMood();
 	}
@@ -16,19 +16,23 @@ public class MoodAnalyzer {
 	// Method for analyze respond Happy or Sad Mood
 	// return : HAPPY or SAD
 
-	public String analyseMood() {
+	public String analyseMood() throws MoodAnalysisException {
 
     	try {
         if (message.contains("SAD"))
             return "SAD";
+        else if (message.contains(""))
+        		throw new MoodAnalysisException("Empty input");
         else
             return "HAPPY";
+        
     }catch (NullPointerException e) {
-    	return "HAPPY";
+    	
+    	throw new MoodAnalysisException("Null Input");
     }
     }
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws MoodAnalysisException {
 		MoodAnalyzer moodAnalyzer = new MoodAnalyzer("HAPPY");
 		String result = moodAnalyzer.analyseMood();
 		System.out.println(result + " MOOD");
