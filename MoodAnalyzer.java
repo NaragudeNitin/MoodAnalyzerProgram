@@ -7,12 +7,12 @@ public class MoodAnalyzer {
         this.message = message;
     }
 
+    //method to return mood
     public String analyseMood(String message) {
         this.message = message;
         return analyseMood();
     }
 
-    
       //Method for analyze respond Happy or Sad Mood
       //return : HAPPY or SAD
      
